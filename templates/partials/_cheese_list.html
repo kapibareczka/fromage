@@ -1,0 +1,18 @@
+<ul class="cheeses">
+  {% for cheese in cheeses %}
+  <li class="cheese-item">
+    <a href="{% url 'cheese_details' cheese.id %}" class="cheese-item__link">
+      <img
+        class="cheese-item__image"
+        src="https://images.pexels.com/photos/4109943/pexels-photo-4109943.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      />
+      <div class="cheese-item__content">
+        <h3 class="cheese-item__name">{{ cheese.name }}</h3>
+        <h4 class="cheese-item__description">
+          Strength {{ cheese.strength }} | {{ cheese.country }}
+        </h4>
+      </div>
+    </a>
+  </li>
+  {% endfor %}
+</ul>

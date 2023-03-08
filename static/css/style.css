@@ -1,0 +1,80 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.header {
+  background-color: #f95700;
+  color: white;
+  padding: 15px 0;
+  margin-bottom: 30px;
+}
+
+.header__title {
+  font-size: 18px;
+}
+
+.heading {
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgb(225, 225, 225);
+  width: 100%;
+}
+
+/* <ul></ul> */
+.cheeses {
+  display: flex;
+  gap: 10px;
+}
+
+/* <li></li> */
+.cheese-item {
+  width: 25%;
+  list-style-type: none;
+  background-color: #fed053;
+  border-radius: 20px;
+  transition: 0.2s background-color ease;
+}
+
+/* <img /> */
+.cheese-item__image {
+  width: 100%;
+  display: block;
+  height: 200px;
+  object-fit: cover;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.cheese-item__content {
+  padding: 15px;
+  z-index: 2;
+}
+
+.cheese-item__description {
+  font-weight: normal;
+  margin-top: 6px;
+  font-size: 16px;
+  color: #323652;
+}
+
+.cheese-item__link {
+  color: #1e2138;
+  text-decoration: none;
+  transition: 0.2s color ease;
+}
+
+.cheese-item:hover {
+  background-color: #f95700;
+}
+
+.cheese-item__link:hover {
+  color: white;
+}

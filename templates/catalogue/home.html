@@ -1,0 +1,78 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fromage</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <h1 class="header__title">Fromage</h1>
+        <nav class="nav"></nav>
+      </div>
+    </header>
+
+    <section class="container">
+      <form action="{% url 'add_cheese' %}" method="POST">
+        {% csrf_token %}
+        <div>
+          <label>Name:</label>
+          <input type="text" name="name" />
+        </div>
+        <div>
+          <label>Strength:</label>
+          <select name="strength">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </div>
+        <div>
+          <label>Colour:</label>
+          <input type="text" name="colour" />
+        </div>
+        <div>
+          <label>Country:</label>
+          <input type="text" name="country" />
+        </div>
+        <div>
+          <label>Age:</label>
+          <input type="number" name="age" />
+        </div>
+        <input
+          type="hidden"
+          name="redirect_url"
+          value="{{ request.get_full_path }}"
+        />
+        <button type="submit">Add cheese</button>
+      </form>
+
+      <form action="{% url 'home' %}" method="get">
+        <input type="text" name="query" placeholder="Name" />
+        <select name="strength">
+          <option disabled selected>Select strength</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+        <select name="country">
+          {% for country in countries %}
+          <option value="{{ country }}">{{ country }}</option>
+          {% endfor %}
+        </select>
+        <button type="submit">Search cheeses</button>
+      </form>
+      <h2 class="heading">My cheeses</h2>
+      {% include 'partials/_cheese_list.html' with cheeses=cheeses %}
+    </section>
+  </body>
+</html>
